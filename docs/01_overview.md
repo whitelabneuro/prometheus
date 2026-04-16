@@ -71,7 +71,7 @@ Prometheus uses a split-storage model so that operating system files, active wor
 
 - `/` — Ubuntu OS, installed software, admin tools, user home
 - `/scratch1` — primary high-speed local workflow work directories
-- `/scratch2` — cache-heavy space for containers, Nextflow cache, temp, micromamba package cache
+- `/scratch2` — cache-heavy space for containers, Nextflow cache, temp, and micromamba package cache
 - `/projects` — organised local project folders and retained active outputs
 - `/archive` — slower local overflow or holding space
 
