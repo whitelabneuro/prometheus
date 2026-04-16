@@ -213,7 +213,7 @@ This meant there were no hardware or firmware blockers to continuing with:
 - software installation
 - Singularity setup
 - Nextflow validation
-- nf-core pipeline validation
+- nf-core workflow validation
 
 ---
 
