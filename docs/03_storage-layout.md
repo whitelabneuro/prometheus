@@ -1,5 +1,3 @@
-
-```markdown
 # Storage layout on Prometheus
 
 ## Overview
@@ -140,4 +138,3 @@ Example top-level structure:
   completed/
 
 /rds/prj/bcn_whitema_rbp/
-  ...
