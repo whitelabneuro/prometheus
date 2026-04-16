@@ -107,7 +107,7 @@ Intended uses:
 ### Use `/rds/prj/bcn_whitema_rbp` for
 - canonical shared copies
 - project handoff
-- datasets shared across machines/users
+- datasets shared across machines or users
 - CREATE-aligned storage targets
 
 ---
@@ -138,3 +138,4 @@ Example top-level structure:
   completed/
 
 /rds/prj/bcn_whitema_rbp/
+  ...
