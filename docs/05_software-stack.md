@@ -135,11 +135,13 @@ However, the default documented execution path for Prometheus should remain:
 ## Installed core components
 
 ### Java
+
 Prometheus uses the Ubuntu default Java runtime installed via APT.
 
 This supports Nextflow execution cleanly without requiring a separate environment manager.
 
 ### Nextflow
+
 Installed as a user-local executable in:
 
 ```text
@@ -147,6 +149,7 @@ Installed as a user-local executable in:
 ```
 
 ### Micromamba
+
 Installed as a user-local executable in:
 
 ```text
@@ -154,9 +157,11 @@ Installed as a user-local executable in:
 ```
 
 ### Singularity CE
+
 Installed from Ubuntu packages and used as the primary workflow container runtime.
 
 ### Docker
+
 Preinstalled and active on Prometheus, retained as a secondary runtime/development tool.
 
 ---
@@ -188,12 +193,14 @@ These are typically placed in `~/.bashrc`.
 ## Why the split locations matter
 
 ### Persistent and user-facing
+
 - `/projects/micromamba`
 - `/projects/test_runs`
 - `/projects/pipelines`
 - `/projects/refdata`
 
 ### Fast scratch/cache
+
 - `/scratch1/nextflow_work`
 - `/scratch2/nextflow_cache`
 - `/scratch2/container_cache/singularity`
@@ -234,12 +241,14 @@ These tools are particularly useful when validating storage and container behavi
 Prometheus is intended to align with CREATE where practical, while remaining convenient as a local workstation.
 
 ### Shared principles with CREATE
+
 - Nextflow-based pipeline execution
 - Singularity-family container execution
 - clear separation of work directories and retained outputs
 - central shared storage destination via `/rds/prj/bcn_whitema_rbp`
 
 ### Differences from CREATE
+
 - executor is local rather than scheduler-backed
 - no SLURM submission layer
 - user-local shell configuration controls cache and runtime behaviour
@@ -250,6 +259,7 @@ Prometheus is intended to align with CREATE where practical, while remaining con
 ## Recommended operational policy
 
 ### Use APT for
+
 - core OS tools
 - Java
 - Singularity CE
@@ -258,22 +268,26 @@ Prometheus is intended to align with CREATE where practical, while remaining con
 - Docker
 
 ### Use micromamba for
+
 - bioinformatics tool environments
 - ad hoc user-space utilities
 - project-specific package environments
 
 ### Use Nextflow directly for
+
 - workflow orchestration
 - nf-core execution
 - local pipeline development
 - reproducible testing
 
 ### Use Singularity CE by default for
+
 - routine pipeline execution
 - nf-core workflows
 - CREATE-aligned workflow behaviour
 
 ### Use Docker when needed for
+
 - development
 - inspection
 - compatibility cases
