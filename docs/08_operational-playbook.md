@@ -38,9 +38,11 @@ Prometheus should **not** be treated as:
 ## Core operating principles
 
 ### 1. Keep active execution on local NVMe
+
 Use `/scratch1` for heavy workflow execution and task work directories.
 
 ### 2. Keep caches separate from work
+
 Use `/scratch2` for:
 
 - Singularity cache
@@ -49,6 +51,7 @@ Use `/scratch2` for:
 - temporary files
 
 ### 3. Keep retained outputs organised
+
 Use `/projects` for:
 
 - launch directories
@@ -57,6 +60,7 @@ Use `/projects` for:
 - pipeline outputs worth browsing or sharing locally
 
 ### 4. Use RDS as the shared institutional destination
+
 Use `/rds/prj/bcn_whitema_rbp` for:
 
 - shared copies
@@ -65,6 +69,7 @@ Use `/rds/prj/bcn_whitema_rbp` for:
 - important outputs that should not remain local-only
 
 ### 5. Avoid using `/` for workflow churn
+
 Do not allow large workflow work directories or container caches to accumulate on the OS disk.
 
 ---
@@ -100,6 +105,7 @@ This should be treated as the default documented pattern for local workflow exec
 ## Standard storage usage
 
 ### `/scratch1`
+
 Use for:
 - live workflow work directories
 - heavy task execution
@@ -108,6 +114,7 @@ Use for:
 Do not rely on `/scratch1` as the only long-term location of important outputs.
 
 ### `/scratch2`
+
 Use for:
 - Singularity cache
 - Nextflow framework/assets/plugins
@@ -117,6 +124,7 @@ Use for:
 This is infrastructure/cache space rather than a user-facing results area.
 
 ### `/projects`
+
 Use for:
 - local project organisation
 - launch directories
@@ -126,12 +134,14 @@ Use for:
 - active analysis folders
 
 ### `/archive`
+
 Use for:
 - slower local overflow
 - temporary holding
 - non-performance-critical staging
 
 ### `/rds/prj/bcn_whitema_rbp`
+
 Use for:
 - canonical shared storage
 - lab-visible datasets and outputs
@@ -327,12 +337,14 @@ This is one of the most important maintenance items on Prometheus.
 ## Routine cleanup guidance
 
 ### Safe to clean periodically
+
 - old run directories in `/projects/test_runs`
 - obsolete work directories in `/scratch1/nextflow_work`
 - stale temporary files in `/scratch2/tmp`
 - unnecessary local copies after results have been promoted to RDS
 
 ### Be careful with
+
 - `/scratch2/container_cache/singularity`
 - `/scratch2/nextflow_cache`
 
@@ -346,6 +358,7 @@ Removing these is not inherently wrong, but it will force future re-download of:
 That may be acceptable occasionally, but should be done deliberately rather than casually.
 
 ### Do not casually edit
+
 - `/etc/fstab`
 - `/root/.smb/rds_bcn_whitema_rbp.cred`
 - `~/.nextflow/config`
@@ -358,6 +371,7 @@ Those are core configuration points.
 ## Common problems and first checks
 
 ### Problem: workflow pulls containers into the work directory
+
 First check:
 
 ```bash
@@ -373,6 +387,7 @@ Expected:
 If this is blank or wrong, reload shell config.
 
 ### Problem: RDS mount disappears or fails
+
 Check:
 
 ```bash
@@ -386,6 +401,7 @@ If not mounted:
 - run `sudo mount -a`
 
 ### Problem: run is slow on first execution
+
 Common reasons:
 - first-time container pulls
 - Wi-Fi bottleneck
@@ -396,12 +412,14 @@ Common reasons:
 This is often normal. Compare with a `-resume` rerun before assuming the workstation is underperforming.
 
 ### Problem: OS disk starts filling
+
 Check whether:
 - cache variables are set correctly
 - someone launched a workflow without explicit `-work-dir`
 - results or temporary data were written under home or root unintentionally
 
 ### Problem: unexpected local `work/` directory appears under a project
+
 This usually means a workflow was launched without the intended explicit `-work-dir`.
 
 ---
@@ -421,7 +439,6 @@ This usually means a workflow was launched without the intended explicit `-work-
 - many-sample production runs
 - long-running heavily parallel jobs
 - jobs that benefit from queue-managed cluster execution
-- pipelines where local storage or time budget is less appropriate than shared HPC resources
 
 ---
 
