@@ -139,3 +139,71 @@ Example top-level structure:
 
 /rds/prj/bcn_whitema_rbp/
   ...
+```
+
+---
+
+## Standard Nextflow launch pattern
+
+```bash
+cd /projects/test_runs/<run_name>
+
+nextflow run <pipeline> \
+  -profile singularity \
+  --outdir /projects/test_runs/<run_name>/results \
+  -work-dir /scratch1/nextflow_work/<run_name>
+```
+
+This keeps:
+
+- results under `/projects`
+- heavy execution under `/scratch1`
+- container and framework cache under `/scratch2`
+
+---
+
+## Relationship to CREATE HPC
+
+Prometheus is intended to complement CREATE rather than replace it.
+
+### Prometheus is best for
+- local pipeline development
+- debugging
+- dry runs
+- moderate-scale production runs
+- rapid reruns using local NVMe
+- validating storage and output behaviour before scaling up
+
+### CREATE is best for
+- large cohort processing
+- heavy parallel production workloads
+- long-running batch execution
+- jobs that benefit from scheduler-managed shared compute
+
+### Shared path consistency
+
+A key design goal is that shared institutional storage appears at the same path on both systems:
+
+- CREATE: `/rds/prj/bcn_whitema_rbp`
+- Prometheus: `/rds/prj/bcn_whitema_rbp`
+
+This reduces friction when moving between systems and simplifies documentation.
+
+---
+
+## Example storage behaviour from validation runs
+
+The validated test workflows on Prometheus behaved as intended:
+
+- Nextflow work directories were written to `/scratch1`
+- Singularity cache and Nextflow framework assets were written to `/scratch2`
+- retained pipeline outputs were written to `/projects`
+- shared storage was available at `/rds/prj/bcn_whitema_rbp` for later sync or handoff
+
+This confirms that the split-storage model is functioning correctly in practice rather than only in theory.
+
+---
+
+## Storage principle
+
+Keep active execution on local NVMe, retain structured local outputs under `/projects`, and use `/rds/prj/bcn_whitema_rbp` as the canonical shared storage destination aligned with CREATE HPC.
