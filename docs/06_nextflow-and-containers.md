@@ -142,30 +142,39 @@ dag {
 ## Configuration rationale
 
 ### `executor = 'local'`
+
 Prometheus is a workstation, so workflows run with the local executor rather than a scheduler such as SLURM.
 
 ### `cache = 'lenient'`
+
 This supports practical local reruns and resume behaviour without being overly strict in common local development situations.
 
 ### `workDir = '/scratch1/nextflow_work'`
+
 Provides a sensible default work root so active task execution lands on the intended NVMe scratch area rather than under arbitrary launch directories.
 
 ### `singularity.enabled = true`
+
 Makes Singularity the default container runtime for workflow execution.
 
 ### `singularity.autoMounts = true`
+
 Supports practical bind behaviour for typical workflow inputs and outputs.
 
 ### `singularity.cacheDir = '/scratch2/container_cache/singularity'`
+
 Centralizes container image storage on the cache-heavy scratch tier.
 
 ### `docker.enabled = false`
+
 Prevents Docker from becoming the default runtime in routine workflow execution.
 
 ### `cleanup = false`
+
 Retains workflow artefacts during development and troubleshooting. This is useful while Prometheus is being used as a development and validation machine.
 
 ### trace / timeline / report / dag
+
 These are enabled to provide workflow provenance and debugging outputs automatically.
 
 ---
@@ -217,20 +226,26 @@ For Prometheus, explicit `-work-dir` is the preferred documented pattern.
 Prometheus has now been validated to show the intended separation:
 
 ### `/scratch1`
+
 Used for:
+
 - hashed Nextflow work directories
 - task-local execution
 - staged inputs and temporary task artefacts
 
 ### `/scratch2`
+
 Used for:
+
 - Singularity container cache
 - Nextflow framework and assets cache
 - plugin downloads
 - temp files
 
 ### `/projects`
+
 Used for:
+
 - run launch directories
 - retained results
 - pipeline information
@@ -245,6 +260,7 @@ This is the core behaviour that the workstation was designed to achieve.
 The following examples have been run successfully on Prometheus:
 
 ### Singularity pull / run test
+
 A local Singularity pull and run of `hello-world` confirmed:
 
 - network image pull
@@ -253,13 +269,17 @@ A local Singularity pull and run of `hello-world` confirmed:
 - basic cache behaviour
 
 ### `nextflow run hello`
+
 Confirmed:
+
 - Nextflow installation works
 - local executor works
 - simple workflow execution works
 
 ### `nf-core/demo`
+
 Confirmed:
+
 - nf-core pipeline pull works
 - plugin resolution works
 - Singularity execution works
@@ -267,7 +287,9 @@ Confirmed:
 - resume behaviour is functional
 
 ### `nf-core/rnaseq`
+
 Confirmed:
+
 - realistic nf-core RNA-seq workflow execution works
 - output structure matches expectations
 - work/cache/output separation is correct
