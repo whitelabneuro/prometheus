@@ -67,3 +67,8 @@ nextflow run <pipeline> \
   -profile singularity \
   --outdir /projects/test_runs/<run_name>/results \
   -work-dir /scratch1/nextflow_work/<run_name>
+
+Example promotion of results to shared storage:
+
+rsync -avh --progress /projects/test_runs/<run_name>/results/ \
+  /rds/prj/bcn_whitema_rbp/<destination_path>/
