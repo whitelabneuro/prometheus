@@ -44,7 +44,7 @@ Confirmed successfully:
 - ASUS Pro WS WRX80E-SAGE SE WIFI
 - 256 GB ECC DDR4 RDIMM
 - NVIDIA RTX 5060 Ti 16 GB
-- 1 × 1 TB Kioxia NVMe (OS)
+- 1 × 1 TB Kioxia NVMe
 - 3 × 4 TB Samsung 990 Pro NVMe
 - 1 × 8 TB WD Red Pro HDD
 
@@ -220,6 +220,7 @@ It confirmed:
 The validation runs demonstrated that Prometheus now behaves as designed.
 
 ### `/scratch1`
+
 Used for:
 
 - active Nextflow work directories
@@ -233,6 +234,7 @@ Example validated usage:
 - `/scratch1/nextflow_work/nfcore_rnaseq_test`
 
 ### `/scratch2`
+
 Used for:
 
 - Singularity container cache
@@ -249,6 +251,7 @@ Example validated usage:
 - `/scratch2/micromamba/pkgs`
 
 ### `/projects`
+
 Used for:
 
 - launch directories
@@ -319,6 +322,7 @@ The validation process did not only confirm that individual tools were installed
 ## Key takeaways
 
 ### What worked as intended
+
 - hardware detection
 - ECC and memory layout
 - split storage layout
@@ -331,6 +335,7 @@ The validation process did not only confirm that individual tools were installed
 - RDS integration
 
 ### What needed tuning
+
 - explicit Singularity cache routing via `NXF_SINGULARITY_CACHEDIR`
 - explicit `-work-dir` usage in documented run patterns
 
