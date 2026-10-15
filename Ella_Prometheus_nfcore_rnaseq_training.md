@@ -89,7 +89,7 @@ df -h /projects /scratch1 /scratch2 /archive
 
 ## Part D | Create your own directories (Ella)
 
-You create the following yourself; your PI has established only the three shared `/users` parents:
+You create the following yourself; Matt has established only the three shared `/users` parents so far:
 
 ```bash
 umask 077
