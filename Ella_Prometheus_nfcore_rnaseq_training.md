@@ -391,20 +391,20 @@ Do not delete `/scratch1/users/ella/nextflow_work/TDP43_LOF_training` or `/scrat
 
 ### Optional supervised RDS off-ramp exercise
 
-Ask the PI to identify or approve a dedicated **RDS export folder** first. Do not export into the sequencing `inputs/raw` directory, overwrite an original, or copy an entire large `results/` tree during this smoke test. Once the destination exists and is confirmed, replace the placeholder path below with the approved one, then upload a small text file and read it back:
+You have a dedicated **RDS export folder** at: `/rds/prj/bcn_whitema_rbp/Prometheus_export/ella/`. Do not export into the sequencing `inputs/raw` directory, overwrite an original, or copy an entire large `results/` tree during this smoke test. Once the destination exists and is confirmed, replace the placeholder path below with the approved one, then upload a small text file and read it back:
 
 ```bash
-# Example layout ONLY: confirm RDS_EXPORT with the PI before running.
-RDS_EXPORT=/rds/prj/bcn_whitema_rbp/RNA_seq_studies/APPROVED_EXPORT_FOLDER/ella
+# Example layout ONLY: confirm RDS_EXPORT before running.
+RDS_EXPORT=/rds/prj/bcn_whitema_rbp/Prometheus_export/ella/
 PROJECT=/projects/users/ella/TDP43_LOF_training
 printf 'Prometheus training transfer test\n' > "$PROJECT/docs/rds_transfer_test.txt"
-# The PI-approved RDS_EXPORT destination must already exist.
+# The approved RDS_EXPORT destination must already exist.
 rsync -rv --no-perms --no-owner --no-group \
   "$PROJECT/docs/rds_transfer_test.txt" "$RDS_EXPORT/"
 md5sum "$PROJECT/docs/rds_transfer_test.txt" "$RDS_EXPORT/rds_transfer_test.txt"
 ```
 
-Matching hashes verify the off-ramp. In normal use, export agreed final products, manifests and QC summaries to the appropriate RDS study directory; preserve original names, checksums and scientific provenance. Ask the PI before deleting a local copy.
+Matching hashes verify the off-ramp. In normal use, export agreed final products, manifests and QC summaries to the appropriate RDS study directory; preserve original names, checksums and scientific provenance. Ask Matt before deleting a local copy.
 
 
 ## Part K | Training checklist and interpretation
