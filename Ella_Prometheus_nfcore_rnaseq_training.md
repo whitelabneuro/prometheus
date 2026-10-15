@@ -30,7 +30,7 @@ By the end of this exercise you should be able to (1) explain where datasets and
 
 The production TDP-43 design keeps the launcher, samplesheet and outputs in `/projects`; task directories in `/scratch1`; and Nextflow runstate and caches in `/scratch2`. This exercise follows **that division of roles**, while using your own user area rather than the production project.
 
-## Part B | Administrator preparation: already completed (PI reference)
+## Part B | Administrator preparation: already completed (Matt reference)
 
 The PI completed the following on 15 October 2026. **Ella does not repeat these commands, install software or need sudo.**
 
