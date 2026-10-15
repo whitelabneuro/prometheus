@@ -177,7 +177,7 @@ for fastq in *.fastq.gz; do
 done
 ```
 
-All four must show `PASS`. If any fails, stop: do not run the pipeline on an unverified copy. Reconcile with the PI. Do not delete the source FASTQs or sidecar checksums.
+All four must show `PASS`. If any fails, stop: do not run the pipeline on an unverified copy. Reconcile with Matt to figure out. Do not delete the source FASTQs or sidecar checksums.
 
 **Storage tip:** These are full-sized FASTQs. fastp limits the reads handed to later stages, but does not magically make the original files small. Copy only the two selected samples for this exercise, and do not duplicate all 16 libraries unnecessarily.
 
