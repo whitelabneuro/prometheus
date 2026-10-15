@@ -421,7 +421,7 @@ Matching hashes verify the off-ramp. In normal use, export agreed final products
 - [ ] I can describe the approved RDS off-ramp and why the raw sequencing delivery must not be modified.
 - [ ] I can identify the results, execution work folders, logs, reports and MultiQC summary.
 
-**Discuss with the PI:** What did Nextflow reuse from the shared installation? Which steps downloaded containers? Did Fastp, STAR and Salmon execute? Which checks were disabled for the pilot, and what changes are required before processing all 16 samples at full read depth? What would change for a new project with different samples and references?
+**Discuss** What did Nextflow reuse from the shared installation? Which steps downloaded containers? Did Fastp, STAR and Salmon execute? Which checks were disabled for the pilot, and what changes are required before processing all 16 samples at full read depth? What would change for a new project with different samples and references?
 
 ## References and source of truth
 
