@@ -363,7 +363,7 @@ singularity --version
 bash -n "$PROJECT/run_nfcore_rnaseq.sh"
 ```
 
-**Before running:** the source datasets may be large and even a 5,000-read test may build substantial human STAR/Salmon reference indices. Read subsampling reduces per-sample processing, **not reference-index construction**. Confirm available resources with the PI; a verified reusable index can be configured separately if one exists.
+**Before running:** the source datasets may be large and even a 5,000-read test may build substantial human STAR/Salmon reference indices. Read subsampling reduces per-sample processing, **not reference-index construction**. Confirm available resources with Matt; a verified reusable index can be configured separately if one exists.
 
 To execute in a persistent terminal session, first create a tmux session:
 
