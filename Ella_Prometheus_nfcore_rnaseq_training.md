@@ -4,7 +4,7 @@
 **System:** Prometheus (Ubuntu, SSH, local Nextflow + Singularity)  
 **Exercise:** TDP-43 loss-of-function RNA-seq pilot with a deliberately reduced read count  
 **Prepared:** 15 October 2026  
-**Status:** Updated after Prometheus access checks on 15 October 2026. PI setup is complete; Ella creates and runs her own training project. No training run has yet been launched.
+**Status:** Updated after Prometheus access checks on 15 October 2026. PI setup is complete; Ella to create and run her own training project.
 
 ## Learning outcomes
 
