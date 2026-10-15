@@ -122,7 +122,7 @@ Next, fetch the **pinned pipeline code** into your personal Nextflow home (this 
 /usr/local/bin/nextflow pull nf-core/rnaseq -r 3.23.0
 ```
 
-This is not the same as installing Nextflow itself. If the pull fails due to network restrictions, stop and ask the PI to supply a vetted copy from the existing laboratory pipeline cache. Do not work around the restriction by editing the established project.
+This is not the same as installing Nextflow itself. If the pull fails due to network restrictions, stop and ask Matt to supply a vetted copy from the existing laboratory pipeline cache. Do not work around the restriction by editing the established project.
 
 ## Part E | Understand the TDP-43 dataset
 
