@@ -59,7 +59,7 @@ sudo -H -u ella env NXF_VER=25.10.4 \
 sudo -l -U ella
 ```
 
-**Do not** recreate the parent directories, change their group, chmod the whole RDS, or alter the completed TDP-43 project. Any server-side access problem should go back to the PI.
+**Do not** recreate the parent directories, change their group, chmod the whole RDS, or alter the completed TDP-43 project. Any server-side access problem should go back to Matt to fix.
 
 ## Part C | Log in and orient yourself (Ella)
 
