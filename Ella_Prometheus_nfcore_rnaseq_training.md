@@ -32,7 +32,7 @@ The production TDP-43 design keeps the launcher, samplesheet and outputs in `/pr
 
 ## Part B | Administrator preparation: already completed (Matt reference)
 
-The PI completed the following on 15 October 2026. **Ella does not repeat these commands, install software or need sudo.**
+Matt completed the following on 15 October 2026. **Ella you do not repeat these commands, install software or need sudo.**
 
 | Item | Established configuration / observed result |
 |---|---|
