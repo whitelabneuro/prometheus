@@ -305,7 +305,14 @@ export SINGULARITY_TMPDIR=/scratch2/users/ella/tmp
 export TMPDIR=/scratch2/users/ella/tmp
 export NXF_ANSI_LOG=false
 
-mkdir -p "$WORKDIR" "$RUNSTATE" "$OUTDIR" "$(dirname "$LOGFILE")" "$TMPDIR"
+mkdir -p \
+  "$WORKDIR" \
+  "$RUNSTATE" \
+  "$OUTDIR" \
+  "$(dirname "$LOGFILE")" \
+  "$TMPDIR" \
+  "$NXF_SINGULARITY_CACHEDIR" \
+  "$SINGULARITY_CACHEDIR"
 for f in "$SAMPLESHEET" "$CONFIG" "$FASTA" "$GTF"; do
   test -r "$f" || { echo "Cannot read: $f"; exit 1; }
 done
