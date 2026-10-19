@@ -2,8 +2,7 @@
 
 **Audience:** Ella, working on Prometheus as Linux user `ella`  
 **Exercise:** Repeat the validated White Lab full-depth TDP-43 workflow independently using all 16 biological samples, **Trim Galore**, STAR + Salmon and GRCh38/GENCODE v49.  
-**Prerequisite:** Complete the two-sample `fastp` pilot training (`Ella_Prometheus_nfcore_rnaseq_training.md`).  
-**Status:** Training instructions; **not** evidence that Ella's full run has started or finished.  
+**Prerequisite:** Complete the two-sample `fastp` pilot training (`Ella_Prometheus_nfcore_rnaseq_training.md`).   
 **Next exercise:** Training 3, evaluating outputs and safe storage management.
 
 > **Safety rule:** Everything created or altered must stay under Ella's own `/projects/users/ella` and `/scratch*/users/ella` directories. `/projects/active/TDP43_LOF`, `/archive` and RDS sequencing originals are **read-only** reference sources. No `sudo`. A full human RNA-seq run is large: agree server load and space with Matt before launching.
@@ -295,7 +294,7 @@ pgrep -u ella -af '[n]extflow' || true
 ls "$PROJECT/inputs/raw"/*.fastq.gz | wc -l
 ```
 
-**PASS requires:** 32 MD5 checks, exactly 16 metadata rows, 25.10.4, valid config/launcher, and explicit supervisor agreement on storage/load. If the Nextflow pipeline cache is not accessible from Ella's account, do not copy or modify the established `/projects/active` study; ask Matt to provide approved access.
+**PASS requires:** 32 MD5 checks, exactly 16 metadata rows, 25.10.4, valid config/launcher, and Matt agreement on storage/load. If the Nextflow pipeline cache is not accessible from your Ella account, do not copy or modify the established `/projects/active` study; ask Matt to provide approved access.
 
 ## G. Run within tmux and monitor
 
