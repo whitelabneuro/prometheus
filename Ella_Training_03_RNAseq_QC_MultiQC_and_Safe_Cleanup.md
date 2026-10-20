@@ -325,9 +325,9 @@ PY
 
 This takes time because it reads **64 full FASTQ files** (32 local, 32 RDS). Save the terminal output with `tee` if using it for the deletion decision. RDS may be a network mount, so allow for transfer time.
 
-### G2. Local FASTQ removal — optional, only with Matt's explicit approval
+### G2. Local FASTQ removal — optional, only with Matt's approval, we never want to accidentally delete our raw data 
 
-Do this **after** Training 4, only after the archive and RDS source validation has been signed off and no live Nextflow job is using these files. This command is intentionally confined to **Ella's own** expected FASTQ filenames. It leaves MD5 sidecars and an offload manifest in `docs/`. It requires typed confirmation; do not run it during routine QC.
+Do this **after** Training 4, only after the archive and RDS source validation has been signed off and no live Nextflow job is using these files. This command is intentionally confined to **your own Ella directory** expected FASTQ filenames. It leaves MD5 sidecars and an offload manifest in `docs/`. It requires typed confirmation; do not run it during routine QC.
 
 ```bash
 [[ "$(whoami)" == ella ]] || { echo 'STOP: wrong Unix account'; exit 1; }
