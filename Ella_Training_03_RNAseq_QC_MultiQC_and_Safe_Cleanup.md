@@ -323,7 +323,7 @@ print('NEXT: Matt must confirm the distinct archive copy and explicitly authoris
 PY
 ```
 
-This takes time because it reads **64 full FASTQ files** (32 local, 32 RDS). Save the terminal output with `tee` if using it for the deletion decision. RDS may be a network mount, so allow for transfer time. Verify the separate archive location using the production TDP-43 README and Matt; **don't invent an archive path** or treat two filenames as independent archive copies.
+This takes time because it reads **64 full FASTQ files** (32 local, 32 RDS). Save the terminal output with `tee` if using it for the deletion decision. RDS may be a network mount, so allow for transfer time.
 
 ### G2. Local FASTQ removal — optional, only with Matt's explicit approval
 
