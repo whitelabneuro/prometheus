@@ -366,7 +366,7 @@ The full-run scratch path is:
 
 `/scratch1/users/ella/nextflow_work/TDP43_LOF_training_full`
 
-It may contain large reference intermediates, BAMs and duplicate task outputs. Removing it will prevent reusing these tasks via `-resume`. **Do not remove work to fix a failing pipeline.** Only after results, checksum records, MultiQC review and follow-on work have been certified, obtain explicit PI approval.
+It may contain large reference intermediates, BAMs and duplicate task outputs. Removing it will prevent reusing these tasks via `-resume`. **Do not remove work to fix a failing pipeline.** Only after results, checksum records, MultiQC review and follow-on work have been certified.
 
 First perform a **read-only** audit:
 
@@ -379,7 +379,7 @@ find "$WORK" -mindepth 1 -maxdepth 1 -type d | wc -l
 pgrep -u ella -af '[n]extflow' || true
 ```
 
-After explicit authorisation, if there are no active jobs and you have accepted loss of Nextflow resume capability, the **following narrowly scoped command removes only the confirmed full-run scratch directory**; it cannot be undone:
+After, if there are no active jobs and you have accepted loss of Nextflow resume capability, the **following narrowly scoped command removes only the confirmed full-run scratch directory**; it cannot be undone:
 
 ```bash
 [[ "$(whoami)" == ella ]] || { echo 'STOP: wrong account'; exit 1; }
