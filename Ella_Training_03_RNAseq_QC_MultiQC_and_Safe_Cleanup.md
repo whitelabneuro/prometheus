@@ -7,7 +7,7 @@
 
 > **Three independent questions:** (1) Did Nextflow finish? (2) Are all the required files complete and scientifically plausible? (3) Which files can eventually be removed without destroying reproducibility? A “Pipeline completed successfully” line answers **only question 1**.
 
-This exercise is patterned on the White Lab's formal HNRNPK_LOF and TDP43_LOF RNA-seq certifications. Your own analysis remains isolated under `/projects/users/ella/TDP43_LOF_training`. **No deletion should be done during the initial audit.** An approved cleanup can be performed later using the explicit safeguards below. Retain the raw FASTQs and Nextflow task work until both Training 3 QC and Training 4 DGE are complete (and Matt approves deletion).
+This exercise is patterned on the White Lab's formal HNRNPK_LOF and TDP43_LOF RNA-seq certifications. Your own analysis remains isolated under `/projects/users/ella/TDP43_LOF_training`. **No deletion should be done during the initial audit.** An approved cleanup can be performed later using the explicit safeguards below. Retain the raw FASTQs and Nextflow task work until both Training 3 QC and Training 4 DGE are complete.
 
 ## A. What each output means
 
