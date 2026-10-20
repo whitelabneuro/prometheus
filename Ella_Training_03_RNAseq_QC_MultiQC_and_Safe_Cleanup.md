@@ -210,8 +210,6 @@ Create a simple file: `docs/full_rnaseq_MultiQC_interpretation.md`. Use the foll
 - Checked with Matt (date):
 ```
 
-This evaluation is an intellectual part of the exercise: don't copy the PI's QC conclusion without reading your own data.
-
 ## E. Understand why the BAMs and Salmon matrices matter
 
 A `*.markdup.sorted.bam` contains alignments of reads to the genome; its index (`.bai` or `.csi`) allows tools such as IGV and rMATS to access genomic regions efficiently. These files will be required by the subsequent **splicing** workflow, even though the DGE pipeline uses only gene-count and gene-length matrices.
