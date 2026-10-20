@@ -290,7 +290,7 @@ Equal *filenames* or similar sizes do not prove identity. Equal full-file SHA256
 
 ## G. FASTQ offload — verification and supervised action
 
-**Sequence of work:** technical QC PASS → MultiQC review with Matt → DGE completed/certified (Training 4) → authoritative RDS **and** archive locations verified → no active pipeline/rerun requirement → supervised local FASTQ offload. Offload means removing *Ella's unnecessary local duplicates*, never the authoritative originals.
+**Sequence of work:** technical QC PASS → MultiQC review with Matt → DGE completed/certified (Training 4) → authoritative RDS **and** archive locations verified → no active pipeline/rerun requirement → supervised local FASTQ offload. Offload means removing *your Ella directory unnecessary local duplicates*, never the authoritative originals.
 
 ### G1. Independently verify local and RDS hashes
 
