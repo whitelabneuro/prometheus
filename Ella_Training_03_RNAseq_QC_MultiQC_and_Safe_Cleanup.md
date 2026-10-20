@@ -178,7 +178,7 @@ Open the downloaded HTML with your browser. If the file includes links to resour
 | **Sample correlations / exploratory QC** | Whether biological samples cluster sensibly | Large outliers could reflect technical issues, swaps, batch effects or strong biology |
 | **Module warnings/absence** | Which analyses were actually produced | Not every module runs or has a general-statistics column; absence ≠ a PASS or FAIL by itself |
 
-**Interpret the magnitude comparatively, not mechanically.** In the completed HNRNPK full-depth study, sample QC medians were approximately **77.1 million input read pairs**, **98.1% STAR mapped**, **94.1% uniquely mapped** and **24.1% Picard duplication**. Those are helpful *White Lab reference values*, not universal cutoffs and not a prediction of Ella's TDP-43 results.
+**Interpret the magnitude comparatively, not mechanically.** In the completed HNRNPK full-depth study, sample QC medians were approximately **77.1 million input read pairs**, **98.1% STAR mapped**, **94.1% uniquely mapped** and **24.1% Picard duplication**. Those are helpful, not universal cutoffs and not a prediction of your TDP-43 results.
 
 Key questions for each metric:
 
