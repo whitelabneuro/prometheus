@@ -3,7 +3,6 @@
 **Audience:** Ella, working in her own Prometheus training project  
 **Exercise:** Run **nf-core/differentialabundance 1.5.0 / DESeq2** on all 16 full-depth TDP-43 samples, reproduce the four White Lab contrasts with differentiation-batch adjustment, and inspect the initial differential-expression outputs.  
 **Prerequisites:** Training 2 (full nf-core/rnaseq) and Training 3 (successful RNA-seq technical audit plus MultiQC interpretation).  
-**Status:** Guided training procedure; does not assume that Ella's new DESeq2 run has started or completed.
 
 > **Scientific objective:** Distinguish TDP-43 depletion-associated gene-expression changes from responses to nominal 11J treatment while accounting for independent neuronal differentiation batches. Use **the raw Salmon gene-count matrix together with its matching Salmon gene-length matrix**, not normalised TPMs and not the count matrix alone.
 
@@ -58,7 +57,7 @@ Why two matrices? Salmon counts depend partly on transcript lengths. The gene-le
 
 ## C. Prepare an isolated DGE workspace and copy the validated design
 
-The completed TDP-43 study already has validated sample metadata, contrasts and DESeq2 settings. For training, we will **copy those small reference files** into Ella's project but redirect the input and matrix paths to her own full-depth RNA-seq result. This is more reliable than inventing new factor labels or changing statistical parameters.
+The completed TDP-43 study already has validated sample metadata, contrasts and DESeq2 settings. For training, we will **copy those small reference files** into your Ella project but redirect the input and matrix paths to your own full-depth RNA-seq result. This is more reliable than inventing new factor labels or changing statistical parameters.
 
 | Item | Ella location |
 |---|---|
@@ -170,7 +169,7 @@ python3 "$SCRIPT" | tee "$PROJECT/docs/dge_full_preparation_audit.txt"
 
 **PASS:** 16 matched input sample columns, identical gene ordering, four groups with four biological replicates, correct contrast targets and batch-blocking, and source-matched params preserving DESeq2 method. The training output differs from production in *file paths and study identifier*, not the scientific tests.
 
-The reference `prometheus.config` in `/projects/active/TDP43_LOF/metadata/dge` uses a shared cache location that Ella must not write into. Instead, **use Ella's pre-existing `nextflow.config`** with its private writable Singularity cache. This is an infrastructure adaptation, not a change to DESeq2 statistics.
+The reference `prometheus.config` in `/projects/active/TDP43_LOF/metadata/dge` uses a shared cache location that you must not write into. Instead, **use your pre-existing `nextflow.config`** with its private writable Singularity cache. This is an infrastructure adaptation, not a change to DESeq2 statistics.
 
 ## D. Create a dedicated DESeq2 run launcher
 
@@ -257,7 +256,7 @@ df -h /projects /scratch1 /scratch2
 pgrep -u ella -af '[n]extflow' || true
 ```
 
-Check the four contrast directions **with Matt** before committing the run. If a previous run is active, do not launch a second concurrent copy.
+Check the four contrast directions before committing the run. If a previous run is active, do not launch a second concurrent copy.
 
 Start a new tmux session:
 
@@ -431,7 +430,7 @@ The production study recorded approximately 16,209 (DMSO) and 16,254 (nominal 11
 
 **Sample-level expression:** `all.normalised_counts.tsv` and `all.vst.tsv` support descriptive replicate/QC analyses. Check TARDBP values in all 16 samples, not just its final differential fold change. Large sample outliers require biological evaluation before any exclusion decision.
 
-## G. Initial conclusions and handover to Matt
+## G. Initial conclusions
 
 Create `docs/dge_full_biological_review.md` containing the following *observed* information:
 
@@ -463,13 +462,13 @@ Create `docs/dge_full_biological_review.md` containing the following *observed* 
 - [ ] I verified identical count/length genes and sample columns.
 - [ ] I copied and verified the canonical four-contrast, batch-blocked design.
 - [ ] I understand the sign of each DESeq2 contrast.
-- [ ] I used scientific `params.yaml` plus Ella's safe local compute `nextflow.config`.
+- [ ] I used scientific `params.yaml` plus the Ella safe local compute `nextflow.config`.
 - [ ] I launched in tmux and can resume with retained work/runstate.
 - [ ] All four full and filtered DESeq2 tables, normalised counts, VST and PCA exist.
 - [ ] I extracted TARDBP depletion rather than assuming it from the shRNA label.
 - [ ] I can explain adjusted P-values, log2FC, the filtering rules and why `NA` values occur.
 - [ ] I reviewed biological QC with Matt before proposing follow-up or cleanup.
 
-**Next White Lab task:** After supervisory review, extend to rMATS splicing or mechanistic integration. That requires a **separate** validated launch procedure. Preserve the 16 canonical mark-duplicate BAMs and their indices.
+**Next task:** After review, extend to rMATS splicing or mechanistic integration. That requires a **separate** validated launch procedure. Preserve the 16 canonical mark-duplicate BAMs and their indices.
 
 **References:** Read-only `/projects/active/TDP43_LOF/README.md` and `metadata/dge/`; [nf-core/differentialabundance 1.5.0 usage](https://nf-co.re/differentialabundance/1.5.0/docs/usage); [nf-core/differentialabundance 1.5.0 parameters](https://nf-co.re/differentialabundance/1.5.0/parameters); [nf-core/rnaseq 3.23.0 outputs](https://nf-co.re/rnaseq/3.23.0/docs/output).
